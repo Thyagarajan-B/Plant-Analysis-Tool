@@ -18,7 +18,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.static("public"));
 
 // Initialize GoogleGenerativeAI
-const genAI = new GoogleGenerativeAI(process.env.API_KEY || "AIzaSyBiZU4SlxJ1kLPapN9Bt2zTgKdYyTaAr7g");
+const genAI = new GoogleGenerativeAI(process.env.API_KEY || process.env.GEMINI_API_KEY);
 
 app.post("/analyze", upload.single("image"), async (req, res) => {
     try {
